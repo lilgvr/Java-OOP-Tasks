@@ -10,7 +10,7 @@ public class Rectangle extends Figures implements Curveable {
 
     public Rectangle(Point start, int a, int b){
         this.start = start;
-        if(a*b <= 0) throw new IllegalArgumentException();
+        if(a <= 0 || b <= 0) throw new IllegalArgumentException();
         this.a = a;
         this.b = b;
     }

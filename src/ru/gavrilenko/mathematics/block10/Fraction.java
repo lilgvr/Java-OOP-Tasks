@@ -5,6 +5,7 @@ public class Fraction extends Number{
 
     public Fraction(int numerator, int denominator){
         this.numerator = numerator;
+        if(denominator == 0) throw new IllegalArgumentException();
         this.denominator = denominator;
     }
 
@@ -101,9 +102,7 @@ public class Fraction extends Number{
 
     public String toString(){
         if(numerator == denominator) return "" + numerator;
-        return (denominator == 0)?
-                "Знаменатель не может быть равен нулю" :
-                "" + numerator + '/' + denominator;
+        return numerator + "/" + denominator;
     }
 
 
