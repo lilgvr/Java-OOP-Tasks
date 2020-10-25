@@ -3,6 +3,7 @@ package ru.gavrilenko.mathematics.block11;
 import ru.gavrilenko.mathematics.block4.Point;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Curve implements Lengthable, Curveable{
     private ArrayList<Point> points = new ArrayList<>();
@@ -10,15 +11,11 @@ public class Curve implements Lengthable, Curveable{
     public Curve(){}
 
     public Curve(Point ...points){
-        for(Point i : points){
-            this.points.add(i);
-        }
+        this.points.addAll(Arrays.asList(points));
     }
 
     public void addPoints(Point ...pts){
-        for(Point i : pts){
-            this.points.add(i);
-        }
+        this.points.addAll(Arrays.asList(pts));
     }
 
     public ArrayList<Point> getPoints(){
@@ -35,6 +32,7 @@ public class Curve implements Lengthable, Curveable{
 
     public final double getLength(){
         double sum = 0;
+
         for(int i = 1; i < points.size(); i++){
             sum += len(points.get(i-1), points.get(i));
         }
@@ -47,13 +45,14 @@ public class Curve implements Lengthable, Curveable{
     }
 
     public String toString(){
-        String s = "[";
+        StringBuilder s = new StringBuilder("[");
+
         for(int i = 0; i < points.size(); i++){
-            if(i == points.size() - 1) s += points.get(i).toString() + "]";
-            else s += points.get(i).toString() + ", ";
+            if(i == points.size() - 1) s.append(points.get(i).toString()).append("]");
+            else s.append(points.get(i).toString()).append(", ");
         }
 
-        return s;
+        return s.toString();
     }
 
 }

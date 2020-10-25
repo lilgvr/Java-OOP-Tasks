@@ -1,2 +1,4 @@
-package ru.gavrilenko.cities.block9;public class BinaryRoad {
+package ru.gavrilenko.cities.block9;
+
+public class BinaryRoad {
 }

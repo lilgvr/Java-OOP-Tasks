@@ -4,27 +4,32 @@ import java.util.ArrayList;
 
 public class Cities {
     private String name;
-    private ArrayList<ArrayList<String>> paths = new ArrayList<>();
+    private ArrayList<ArrayList<Object>> paths = new ArrayList<>();
 
     public Cities(String name) {
         this.name = name;
     }
 
-    public ArrayList<ArrayList<String>> getPaths() {
+    public ArrayList<ArrayList<Object>> getPaths() {
         return paths;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void addBinPath(Cities city, int cost){
         if(cost <= 0) throw new IllegalArgumentException("Некорректный путь");
-        ArrayList<String> arr = new ArrayList<>();
-        ArrayList<String> arr1 = new ArrayList<>();
-        arr.add(city.name);
-        arr.add(Integer.toString(cost));
+
+        ArrayList<Object> arr = new ArrayList<>();
+        ArrayList<Object> arr1 = new ArrayList<>();
+        arr.add(city);
+        arr.add(cost);
 
         arr1.add(this.name);
-        arr1.add(Integer.toString(cost));
+        arr1.add(cost);
 
-        ArrayList<ArrayList<String>> t = city.getPaths();
+        ArrayList<ArrayList<Object>> t = city.getPaths();
         t.add(arr1);
 
         paths.add(arr);
@@ -32,29 +37,26 @@ public class Cities {
 
     public void addUnPath(Cities city, int cost){
         if(cost <= 0) throw new IllegalArgumentException("Некорректный путь");
-        ArrayList<String> arr = new ArrayList<>();
-        arr.add(city.name);
-        arr.add(Integer.toString(cost));
+
+        ArrayList<Object> arr = new ArrayList<>();
+        arr.add(city);
+        arr.add(cost);
 
         paths.add(arr);
     }
 
 
-
     public String toString(){
-        String s = "";
-        for(ArrayList<String> i : paths){
-            for(int j = 0; j < i.size(); j++){
-                if(j != i.size() - 1){
-                    s += i.get(j) + ": ";
-                }else{
-                    s += i.get(j);
-                }
-            }
-            s += "\n";
+        if(paths.size() == 0) return "Город " + name;
+
+        StringBuilder s = new StringBuilder("Город " + name + ". Пути: \n");
+
+        for(ArrayList<Object> i : paths){
+            Cities t = (Cities)i.get(0);
+            s.append(name).append(" -> ").append(t.name).append(", стоимость: ").append(i.get(1)).append("\n");
         }
 
-        return name + ". Пути:\n" + s;
+        return s.toString();
     }
 
 }

@@ -1,6 +1,5 @@
 package ru.gavrilenko.person.block3;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,14 +27,12 @@ public class RecBook {
     public void editInfo(String oldDiscipline, String newDiscipline, String newProfessor, int newMark){
         int index = 0;
         for(int i = 0; i < info.size(); i++){
-            if(info.get(i).get(0) == oldDiscipline){
+            if(info.get(i).get(0).equals(oldDiscipline)){
                 index = i;
                 break;
             }
         }
 
-        if(index == -1)
-            throw new IllegalArgumentException("Дисциплина не найдена");
         if(newMark <=0 || newMark > 5)
             throw new IllegalArgumentException("Некорректная оценка");
 
@@ -55,8 +52,7 @@ public class RecBook {
                 break;
             }
         }
-        if(index == -1)
-            throw new IllegalArgumentException("Дисциплина не найдена");
+
         if(mark <=0 || mark > 5)
             throw new IllegalArgumentException("Некорректная оценка");
 
@@ -64,10 +60,7 @@ public class RecBook {
     }
 
     public ArrayList<ArrayList<String>> getInfo() {
-        ArrayList<ArrayList<String>> arr = new ArrayList<>();
-        for(ArrayList<String> i : info){
-            arr.add(i);
-        }
+        ArrayList<ArrayList<String>> arr = new ArrayList<>(info);
         return arr;
     }
 
@@ -77,13 +70,13 @@ public class RecBook {
 
     public String toString(){
         String s = name + ", " + n + ":";
-        String t = "";
+        StringBuilder t = new StringBuilder();
         for(ArrayList<String> i : info){
             for(int j = 0; j < i.size(); j++){
-                if(j == 0) t += "\t" + i.get(j) + ", ";
-                else t += " " + i.get(j) + ", ";
+                if(j == 0) t.append("\t").append(i.get(j)).append(", ");
+                else t.append(" ").append(i.get(j)).append(", ");
             }
-            t += "\n";
+            t.append("\n");
         }
 
         return s + "\n" + t;
