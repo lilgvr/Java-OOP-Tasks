@@ -29,8 +29,7 @@ public class Quadrate extends Figures {
         points[2] = new Point(points[0].getX(), points[0].getY() + a);
         points[3] = new Point(points[0].getX() + a, points[0].getY() + a);
 
-        ClosedCurve res = new ClosedCurve(points);
-        return res;
+        return new ClosedCurve(points);
     }
 
     public void setA(int a){

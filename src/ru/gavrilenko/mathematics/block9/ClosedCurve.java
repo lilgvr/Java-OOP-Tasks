@@ -4,6 +4,7 @@ import ru.gavrilenko.mathematics.block4.Point;
 import ru.gavrilenko.mathematics.block5.Curve;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ClosedCurve extends Curve {
     private ArrayList<Point> points = new ArrayList<>();
@@ -11,9 +12,7 @@ public class ClosedCurve extends Curve {
     public ClosedCurve(Point... pts) {
         super(pts);
 
-        for(Point i : pts){
-            this.points.add(i);
-        }
+        this.points.addAll(Arrays.asList(pts));
 
         if(this.points.size() > 2){
             if(!pts[0].equals(pts[pts.length - 1])){
@@ -23,13 +22,14 @@ public class ClosedCurve extends Curve {
     }
 
     public String toString(){
-        String s = "Замкнутая ломаная: [";
+        StringBuilder s = new StringBuilder("Замкнутая ломаная: [");
+
         for(int i = 0; i < points.size(); i++){
-            if(i == points.size() - 1) s += points.get(i).toString() + "]";
-            else s += points.get(i).toString() + ", ";
+            if(i == points.size() - 1) s.append(points.get(i).toString()).append("]");
+            else s.append(points.get(i).toString()).append(", ");
         }
 
-        return s;
+        return s.toString();
     }
 
 
