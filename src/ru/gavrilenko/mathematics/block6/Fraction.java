@@ -19,6 +19,10 @@ public class Fraction {
         if(denominator == 0) throw new IllegalArgumentException();
     }
 
+    public Fraction(int num){
+        this(num, 1);
+    }
+
     public Fraction sum(Fraction n){
         int gcd;
         if(denominator != n.denominator)

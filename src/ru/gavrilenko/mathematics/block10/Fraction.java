@@ -9,6 +9,10 @@ public class Fraction extends Number{
         this.denominator = denominator;
     }
 
+    public Fraction(int num){
+        this(num,1);
+    }
+
     public Fraction sum(Fraction n){
         int gcd;
         if(denominator != n.denominator)

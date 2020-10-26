@@ -16,11 +16,7 @@ public class Rectangle extends Figures implements Curveable {
     }
 
     public Rectangle(int x, int y, int a, int b){
-        this.start = new Point(x,y);
-
-        if(a*b <= 0) throw new IllegalArgumentException();
-        this.a = a;
-        this.b = b;
+        this(new Point(x,y), a, b);
     }
 
     public Curve getCurve() {

@@ -12,8 +12,7 @@ public class Quadrate {
     }
 
     public Quadrate(int x, int y, int a){
-        this.start = new Point(x,y);
-        this.a = a;
+        this(new Point(x,y), a);
     }
 
     public Curve getCurve(){

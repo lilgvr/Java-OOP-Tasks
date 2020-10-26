@@ -14,9 +14,7 @@ public class Quadrate {
     }
 
     public Quadrate(int x, int y, int a){
-        if(a <= 0) throw new IllegalArgumentException();
-        this.start = new Point(x,y);
-        this.a = a;
+        this(new Point(x,y), a);
     }
 
     public Curve getCurve(){

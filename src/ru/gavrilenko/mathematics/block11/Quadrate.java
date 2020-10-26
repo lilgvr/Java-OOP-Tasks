@@ -2,7 +2,6 @@ package ru.gavrilenko.mathematics.block11;
 
 import ru.gavrilenko.mathematics.block10.Figures;
 import ru.gavrilenko.mathematics.block4.Point;
-import ru.gavrilenko.mathematics.block5.Curve;
 import ru.gavrilenko.mathematics.block9.ClosedCurve;
 
 public class Quadrate extends Figures {
@@ -16,9 +15,7 @@ public class Quadrate extends Figures {
     }
 
     public Quadrate(int x, int y, int a){
-        if(a <= 0) throw new IllegalArgumentException("Сторона не может быть <= 0");
-        this.start = new Point(x,y);
-        this.a = a;
+       this(new Point(x,y), a);
     }
 
     public ClosedCurve getCurve(){

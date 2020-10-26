@@ -9,7 +9,7 @@ public class Student {
     public Student(String name, int ...marks){
         this.name = name;
         for(int i : marks)
-            if(i < 2 || i > 5) throw new IllegalArgumentException();
+            if(i < 2 || i > 5) throw new IllegalArgumentException("Некорректная оценка: " + i);
             else this.marks.add(i);
     }
 
