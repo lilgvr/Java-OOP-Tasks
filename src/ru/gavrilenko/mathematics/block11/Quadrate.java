@@ -10,13 +10,13 @@ public class Quadrate extends Figures {
     private int a;
 
     public Quadrate(Point start, int a){
-        if(a <= 0) throw new IllegalArgumentException();
+        if(a <= 0) throw new IllegalArgumentException("Сторона не может быть <= 0");
         this.start = start;
         this.a = a;
     }
 
     public Quadrate(int x, int y, int a){
-        if(a <= 0) throw new IllegalArgumentException();
+        if(a <= 0) throw new IllegalArgumentException("Сторона не может быть <= 0");
         this.start = new Point(x,y);
         this.a = a;
     }
@@ -33,7 +33,7 @@ public class Quadrate extends Figures {
     }
 
     public void setA(int a){
-        if(a <= 0) throw new IllegalArgumentException();
+        if(a <= 0) throw new IllegalArgumentException("Сторона не может быть <= 0");
         this.a = a;
     }
 

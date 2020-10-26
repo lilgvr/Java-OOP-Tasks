@@ -1,6 +1,8 @@
 package ru.gavrilenko.mathematics.block11;
 
 import ru.gavrilenko.mathematics.block10.Fraction;
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.pow;
 
 public class Maths {
     public static double sum(Number ...arr){
@@ -13,13 +15,13 @@ public class Maths {
         return res;
     }
 
-    public static double pow(String[] arr){
+    public static double power(String[] arr){
         if(arr.length == 0) throw new IllegalArgumentException();
 
-        int a = Integer.parseInt(arr[0]),
-            b = Integer.parseInt(arr[1]);
+        int a = parseInt(arr[0]),
+            b = parseInt(arr[1]);
 
-        return Math.pow(a,b);
+        return pow(a,b);
     }
 
 }
