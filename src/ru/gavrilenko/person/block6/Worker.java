@@ -1,8 +1,8 @@
 package ru.gavrilenko.person.block6;
 
 public class Worker {
-    private String name;
-    private Dept dept;
+    String name;
+    Dept dept;
 
     public Worker(String name, Dept dept) {
         this.name = name;

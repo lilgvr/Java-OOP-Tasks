@@ -3,9 +3,9 @@ package ru.gavrilenko.person.block6;
 import java.util.ArrayList;
 
 public class Dept {
-    private String name;
-    private Worker boss;
-    private ArrayList<Worker> workers = new ArrayList<>();
+    String name;
+    Worker boss;
+    ArrayList<Worker> workers = new ArrayList<>();
 
     public Dept(String name){
         this.name = name;
