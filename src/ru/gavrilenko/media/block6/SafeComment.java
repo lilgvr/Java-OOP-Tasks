@@ -2,7 +2,7 @@ package ru.gavrilenko.media.block6;
 
 import java.util.ArrayList;
 
-public class SafeComment {
+public class SafeComment implements Editable{
     private int rating;
     private ArrayList<SafeComment> coms = new ArrayList<>();
     private String[] a = {
@@ -14,6 +14,13 @@ public class SafeComment {
     };
     private boolean isRatingEdited = false;
 
+    public int getRating() {
+        return rating;
+    }
+
+    public boolean isEditable() {
+        return true;
+    }
 
     public SafeComment(int rating){
         this.rating = rating;
@@ -53,9 +60,9 @@ public class SafeComment {
         String com = "";
         String res = this.toString() + "\n";
 
-        for(int i = 0; i < coms.size(); i++){
+        for (SafeComment safeComment : coms) {
             lns += "--";
-            com = lns + coms.get(i) + "\n";
+            com = lns + safeComment + "\n";
             res += com;
         }
 

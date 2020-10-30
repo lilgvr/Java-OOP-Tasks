@@ -2,7 +2,7 @@ package ru.gavrilenko.media.block6;
 
 import java.util.ArrayList;
 
-public class SafePost {
+public class SafePost implements Editable{
     private String title, text;
     private int rating;
     private final String[] tags;

@@ -1,6 +1,6 @@
 package ru.gavrilenko.media.block6;
 
-enum RatingAction {
+public enum RatingAction {
     decrease,
     increase
 }
