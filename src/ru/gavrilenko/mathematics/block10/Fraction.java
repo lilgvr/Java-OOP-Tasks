@@ -1,11 +1,10 @@
 package ru.gavrilenko.mathematics.block10;
 
-public class Fraction extends Number{
+public class Fraction extends Number implements PublicCloneable {
     private final int numerator, denominator;
 
     public Fraction(int numerator, int denominator){
         this.numerator = numerator;
-        if(denominator == 0) throw new IllegalArgumentException();
         this.denominator = denominator;
     }
 
@@ -64,32 +63,6 @@ public class Fraction extends Number{
         return Math.abs(a);
     }
 
-    private static Fraction reduce(Fraction n){
-        int[] res = new int[2];
-        int num = n.numerator, den = n.denominator;
-
-        if(den == 0){
-            return n;
-        }
-
-        if(num > den){
-            if(num % den == 0){
-                res[0] = num/den;
-                res[1] = 1;
-            }else{
-                res[0] = num / lcm(num, den);
-                res[1] = den / lcm(num, den);
-            }
-        }else{
-            if(den % num == 0){
-                res[0] = num / lcm(num, den);
-                res[1] = den/num;
-            }
-        }
-
-        return new Fraction(res[0], res[1]);
-    }
-
     public boolean equals(Object obj){
         if(obj == this) return true;
         if(obj == null) return false;
@@ -109,13 +82,21 @@ public class Fraction extends Number{
         return numerator + "/" + denominator;
     }
 
+    public Fraction clone() {
+        try {
+            return (Fraction) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
+    }
 
     public int intValue() {
+        if(denominator == 0) throw new FractionException("Denominator == 0", new ArithmeticException("/ by zero"));
         return numerator / denominator;
     }
 
     public long longValue() {
-        return (long) numerator/denominator;
+        return intValue();
     }
 
 
