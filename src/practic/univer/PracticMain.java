@@ -12,7 +12,7 @@ import java.util.function.Predicate;
  * @author Дима
  */
 
-public class Main {
+public class PracticMain {
     public static void main(String[] args) {
         String mark1 = "Зачет";
         String mark2 = "Незачет";
@@ -21,7 +21,7 @@ public class Main {
         Predicate <String> stringPredicate = s -> s.equals(mark1) || s.equals(mark2);
 
         Student <Integer> student1 = new Student <>("John", integerPredicate, 1, 2, 3, 4, 5, 6);
-        Student <String> student2 = new Student <>("Mike", stringPredicate, mark1, mark2, "Mark");
+        Student <String> student2 = new Student <>("Mike", stringPredicate, mark1, mark2, "Аттестован");
 
         System.out.println(student1);
         System.out.println(student2);
