@@ -30,7 +30,7 @@ public class MachineGun extends Weapon {
             extra = n - max;
             this.ammo = max;
         } else {
-            this.ammo = ammo;
+            this.ammo = n;
         }
 
         return extra;

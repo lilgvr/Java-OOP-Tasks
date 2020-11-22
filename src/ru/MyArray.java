@@ -1,4 +1,4 @@
-import java.util.Objects;
+package ru;
 
 public class MyArray<E> {
     private Object[] arr;

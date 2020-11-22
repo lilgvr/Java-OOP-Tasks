@@ -3,7 +3,7 @@ package ru.gavrilenko.cities.block11;
 import ru.gavrilenko.cities.block6.Cities;
 
 public class Citying {
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         Cities c1 = new Cities("A");
         Cities c2 = new Cities("B");
         Cities c3 = new Cities("C");
@@ -22,5 +22,5 @@ public class Citying {
         System.out.println(c3);
         System.out.println(c4);
         System.out.println(c5);
-    }*/
+    }
 }
