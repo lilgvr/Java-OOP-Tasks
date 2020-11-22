@@ -1,6 +1,6 @@
 package ru.gavrilenko.weapons.block10;
 
-public class MachineGun extends Weapon{
+public class MachineGun extends Weapon {
     private int rate, max;
 
     public MachineGun() {
@@ -9,39 +9,39 @@ public class MachineGun extends Weapon{
         this.rate = 30;
     }
 
-    public MachineGun(int max){
+    public MachineGun(int max) {
         super(0);
-        if(max <= 0) throw new IllegalArgumentException();
+        if (max <= 0) throw new IllegalArgumentException();
         this.max = max;
         this.rate = max / 2;
     }
 
-    public MachineGun(int max, int rate){
+    public MachineGun(int max, int rate) {
         super(0);
-        if(max <= 0 || rate <= 0) throw new IllegalArgumentException();
+        if (max <= 0 || rate <= 0) throw new IllegalArgumentException();
         this.max = max;
         this.rate = rate;
     }
 
-    public int reload(int n){
-        if(n < 0) throw new IllegalArgumentException("ammo < 0 ");
+    public int reload(int n) {
+        if (n < 0) throw new IllegalArgumentException("ammo < 0 ");
         int extra = 0;
-        if(n > max){
+        if (n > max) {
             extra = n - max;
             this.ammo = max;
-        }else{
+        } else {
             this.ammo = ammo;
         }
 
         return extra;
     }
 
-    public void shoot(int n){
-        if(n <= 0) throw new IllegalArgumentException();
+    public void shoot(int n) {
+        if (n <= 0) throw new IllegalArgumentException();
 
 //        if(n / rate > max) n = max;
 
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             shoot();
         }
     }
@@ -56,12 +56,12 @@ public class MachineGun extends Weapon{
 
     public void shoot() {
 
-        for(int i = 0; i < rate; i++){
+        for (int i = 0; i < rate; i++) {
 
-            if(this.ammo > 0){
+            if (this.ammo > 0) {
                 System.out.println("BANG!");
                 this.ammo--;
-            }else{
+            } else {
                 System.out.println("*CLICK*");
             }
         }

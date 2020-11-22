@@ -1,6 +1,5 @@
 package ru.gavrilenko.mathematics.block11;
 
-import ru.gavrilenko.mathematics.block10.Fraction;
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.pow;
 

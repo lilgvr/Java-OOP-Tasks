@@ -59,11 +59,12 @@ public class ChangeableArray {
         if(index < 0 || index >= arr.length) throw new IllegalArgumentException("Invalid index");
 
         int[] res = new int[size + array.length];
-        int[] tmp = new int[index];
-
-        System.arraycopy(arr, 0, tmp, 0, tmp.length);
-
-        System.arraycopy(tmp, 0, res, 0, tmp.length);
+        int[] tmp;
+        if(index > 0) { //TODO
+            tmp = new int[index];
+            System.arraycopy(arr, 0, tmp, 0, tmp.length);
+            System.arraycopy(tmp, 0, res, 0, tmp.length);
+        }
 
         if (res.length - index >= 0)
             System.arraycopy(array, 0, res, index, res.length - index);
@@ -94,12 +95,24 @@ public class ChangeableArray {
 
         int[] res = new int[size - 1];
 
+        if(index == 0){
+            System.arraycopy(arr, 1, res, 0, arr.length -1);
+            arr = res.clone();
+            size--;
+            return;
+        }
+
+        if(index == arr.length - 1){
+            System.arraycopy(arr, 0, res, 0, arr.length - 1);
+            arr = res.clone();
+            size--;
+            return;
+        }
+
         System.arraycopy(arr, 0, res, 0, index);
+        System.arraycopy(arr, index + 1, res, index, arr.length - index - 1);
 
-        if (res.length - index + 1 >= 0)
-            System.arraycopy(arr, index + 1, res, index + 1 - 1, res.length - index + 1);
-
-        arr = res;
+        arr = res.clone();
         size--;
     }
 
@@ -134,13 +147,12 @@ public class ChangeableArray {
             return "Empty";
         }
 
-        for(int i = 0; i < size; i++){
-            if(i != size - 1){
-                res.append(arr[i]).append(",");
-            }else{
-                res.append(arr[i]).append("]");
-            }
+        for(int i : arr){
+            res.append(i).append(", ");
         }
+
+        res.delete(res.length() - 2, res.length());
+        res.append("]");
 
         return res.toString();
     }

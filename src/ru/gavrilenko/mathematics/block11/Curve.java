@@ -14,12 +14,16 @@ public class Curve implements Lengthable, Curveable{
         this.points.addAll(Arrays.asList(points));
     }
 
+    public Curve(ArrayList<Point> points){
+        this.points.addAll(points);
+    }
+
     public void addPoints(Point ...pts){
         this.points.addAll(Arrays.asList(pts));
     }
 
     public ArrayList<Point> getPoints(){
-        return points;
+        return new ArrayList <>(points);
     }
 
     public void addPoints(ArrayList<Point> points){
@@ -41,7 +45,7 @@ public class Curve implements Lengthable, Curveable{
     }
 
     public Curve getCurve() {
-        return this;
+        return new Curve(points);
     }
 
     public String toString(){

@@ -50,13 +50,12 @@ public class UnchangeableArray {
             return "Empty";
         }
 
-        for(int i = 0; i < size(); i++){
-            if(i != size() - 1){
-                res.append(arr[i]).append(",");
-            }else{
-                res.append(arr[i]).append("]");
-            }
+        for(int i : arr){
+            res.append(i).append(", ");
         }
+
+        res.delete(res.length() - 2, res.length());
+        res.append("]");
 
         return res.toString();
     }

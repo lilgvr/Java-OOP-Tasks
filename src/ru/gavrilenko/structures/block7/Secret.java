@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Secret {
     private String text;
     private String holder;
-    private int count = 0;
     private ArrayList<String> holders = new ArrayList<>();
 
     public Secret(String text, String holder){
@@ -20,10 +19,11 @@ public class Secret {
         if(secret == null) throw new IllegalArgumentException("Source secret is null");
 
         this.holder = holder;
+        this.holders.addAll(secret.holders);
+        this.holders.add(holder);
 
-        secret.count++;
-        System.out.println(secret.holder + " сказал, что " + secret.text);
         this.text = addSymbols(secret.text);
+        System.out.println(secret.holder + " сказал, что " + text);
     }
 
     private String addSymbols(String str){
@@ -52,7 +52,22 @@ public class Secret {
     }
 
     public int getCount() {
-        return count;
+        return holders.size() - 1;
+    }
+
+    public int getPos(){
+        return holders.indexOf(holder) + 1;
+    }
+
+    public String getHolder(int index){
+        try{
+            int start = getPos() - 1;
+            return holders.get(start + index);
+
+        }catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     public String toString(){
