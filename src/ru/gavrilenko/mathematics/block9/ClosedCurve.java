@@ -1,7 +1,7 @@
 package ru.gavrilenko.mathematics.block9;
 
-import ru.gavrilenko.mathematics.block4.Point;
-import ru.gavrilenko.mathematics.block5.Curve;
+import ru.gavrilenko.mathematics.block11.Point;
+import ru.gavrilenko.mathematics.block11.Curve;
 
 import java.util.ArrayList;
 import java.util.Arrays;

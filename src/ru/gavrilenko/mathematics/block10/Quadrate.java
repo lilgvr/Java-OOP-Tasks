@@ -1,7 +1,7 @@
 package ru.gavrilenko.mathematics.block10;
 
 import ru.gavrilenko.mathematics.block11.Curveable;
-import ru.gavrilenko.mathematics.block4.Point;
+import ru.gavrilenko.mathematics.block11.Point;
 import ru.gavrilenko.mathematics.block11.Curve;
 
 public class Quadrate extends Figures implements Curveable {

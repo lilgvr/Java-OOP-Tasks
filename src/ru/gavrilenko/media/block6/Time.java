@@ -25,7 +25,7 @@ public class Time {
     private String convert(int time){
 
         int sec = time % 60, min = (time / 60) % 60, hour = time / 3600;
-        String res[] = new String[3];
+        String[] res = new String[3];
 
         res[0] = Integer.toString(hour);
         res[1] = Integer.toString(min);

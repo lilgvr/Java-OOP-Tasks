@@ -2,7 +2,7 @@ package ru.gavrilenko.mathematics.block10;
 
 import ru.gavrilenko.mathematics.block11.Curve;
 import ru.gavrilenko.mathematics.block11.Curveable;
-import ru.gavrilenko.mathematics.block4.Point;
+import ru.gavrilenko.mathematics.block11.Point;
 
 public class Triangle extends Figures implements Curveable {
     private Point p1, p2, p3;
@@ -15,9 +15,9 @@ public class Triangle extends Figures implements Curveable {
 
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
         this(
-                new Point(x1,y1),
-                new Point(x2,y2),
-                new Point(x3,y3)
+                new Point(x1, y1),
+                new Point(x2, y2),
+                new Point(x3, y3)
         );
     }
 
@@ -29,16 +29,16 @@ public class Triangle extends Figures implements Curveable {
                 p2.getY() - p3.getY()
         };
 
-        int d = arr[0]*arr[3] - arr[1] * arr[2];
+        int d = arr[0] * arr[3] - arr[1] * arr[2];
 
         return Math.abs(0.5 * d);
     }
 
     public Curve getCurve() {
-        return new Curve(p1,p2,p3);
+        return new Curve(p1, p2, p3);
     }
 
     public String toString() {
-        return "Треугольник с координатами вершин: " + p1 + ", " + p2 + ", "+ p3;
+        return "Треугольник с координатами вершин: " + p1 + ", " + p2 + ", " + p3;
     }
 }

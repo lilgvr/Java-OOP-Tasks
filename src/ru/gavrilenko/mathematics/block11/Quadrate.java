@@ -1,7 +1,6 @@
 package ru.gavrilenko.mathematics.block11;
 
 import ru.gavrilenko.mathematics.block10.Figures;
-import ru.gavrilenko.mathematics.block4.Point;
 import ru.gavrilenko.mathematics.block9.ClosedCurve;
 
 public class Quadrate extends Figures {

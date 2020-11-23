@@ -19,11 +19,11 @@ public class Cat implements Meowable{
             meow();
             return;
         }
-        String s = name + ": ";
+        StringBuilder s = new StringBuilder(name + ": ");
 
         for(int i = 0; i < n; i++){
-            if(i != n - 1) s += "мяу-";
-            else s += "мяу";
+            if(i != n - 1) s.append("мяу-");
+            else s.append("мяу");
         }
         System.out.println(s);
     }

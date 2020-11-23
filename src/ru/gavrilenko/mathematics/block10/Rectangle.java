@@ -2,21 +2,21 @@ package ru.gavrilenko.mathematics.block10;
 
 import ru.gavrilenko.mathematics.block11.Curve;
 import ru.gavrilenko.mathematics.block11.Curveable;
-import ru.gavrilenko.mathematics.block4.Point;
+import ru.gavrilenko.mathematics.block11.Point;
 
 public class Rectangle extends Figures implements Curveable {
     private Point start;
-    private int a,b;
+    private int a, b;
 
-    public Rectangle(Point start, int a, int b){
+    public Rectangle(Point start, int a, int b) {
         this.start = start;
-        if(a <= 0 || b <= 0) throw new IllegalArgumentException();
+        if (a <= 0 || b <= 0) throw new IllegalArgumentException();
         this.a = a;
         this.b = b;
     }
 
-    public Rectangle(int x, int y, int a, int b){
-        this(new Point(x,y), a, b);
+    public Rectangle(int x, int y, int a, int b) {
+        this(new Point(x, y), a, b);
     }
 
     public Curve getCurve() {
@@ -30,7 +30,7 @@ public class Rectangle extends Figures implements Curveable {
     }
 
     public double getSquare() {
-        return a*b;
+        return a * b;
     }
 
     public String toString() {

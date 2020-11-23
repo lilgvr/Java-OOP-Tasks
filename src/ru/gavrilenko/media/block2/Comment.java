@@ -39,17 +39,17 @@ public class Comment {
     }
 
     public String getText(){
-        String lns = "";
+        StringBuilder lns = new StringBuilder();
         String com = "";
-        String res = this.toString() + "\n";
+        StringBuilder res = new StringBuilder(this.toString() + "\n");
 
         for(int i = 0; i < coms.size(); i++){
-            lns += "--";
-            com = lns + coms.get(i) + "\n";
-            res += com;
+            lns.append("--");
+            com = lns.toString() + coms.get(i) + "\n";
+            res.append(com);
         }
 
-        return res;
+        return res.toString();
     }
 
     public String toString(){
