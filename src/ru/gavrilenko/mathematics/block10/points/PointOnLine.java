@@ -1,6 +1,6 @@
 package ru.gavrilenko.mathematics.block10.points;
 
-import ru.gavrilenko.mathematics.block6.Line;
+import ru.gavrilenko.mathematics.block11.Line;
 
 public class PointOnLine extends Point{
     protected Line line;
