@@ -10,6 +10,7 @@ package ru;
  * </ul>
  *
  * @author Дима
+ * @version 1.0
  */
 
 public class Main {

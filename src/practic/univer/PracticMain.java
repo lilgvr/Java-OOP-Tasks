@@ -1,6 +1,10 @@
 package practic.univer;
 
-import java.util.function.Predicate;
+import ru.gavrilenko.mathematics.block11.Lengthable;
+import ru.gavrilenko.mathematics.block11.Line;
+import ru.gavrilenko.mathematics.block11.Point;
+
+import static ru.gavrilenko.mathematics.block11.Lengths.getAllLength;
 
 /**
  * <b>Главный класс для практических заданий</b>
@@ -14,16 +18,31 @@ import java.util.function.Predicate;
 
 public class PracticMain {
     public static void main(String[] args) {
-        String mark1 = "Зачет";
-        String mark2 = "Незачет";
+        StringL str = new StringL("Qwerty");
 
-        Predicate <Integer> integerPredicate = x -> (x >= 2) && (x <= 5);
-        Predicate <String> stringPredicate = s -> s.equals(mark1) || s.equals(mark2);
+        Line line = new Line(new Point(1, 2), new Point(5, 6));
 
-        Student <Integer> student1 = new Student <>("John", integerPredicate, 1, 2, 3, 4, 5, 6);
-        Student <String> student2 = new Student <>("Mike", stringPredicate, mark1, mark2, "Аттестован");
+        System.out.println(getAllLength(line, str));
 
-        System.out.println(student1);
-        System.out.println(student2);
     }
 }
+
+class StringL implements Lengthable {
+    private String s;
+
+    public StringL(String s) {
+        this.s = s;
+    }
+
+    public double getLength() {
+        char[] arr = s.toCharArray();
+        int codeSum = 0;
+
+        for (char i : arr) {
+            codeSum += i;
+        }
+
+        return codeSum;
+    }
+}
+

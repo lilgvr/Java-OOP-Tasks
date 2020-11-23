@@ -43,8 +43,4 @@ public class DoSmth<T, R> {
         return res;
     }
 
-    public R modifyObject(T obj, Function <T, R> func) {
-        return func.apply(obj);
-    }
-
 }

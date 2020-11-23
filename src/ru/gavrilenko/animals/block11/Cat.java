@@ -4,6 +4,7 @@ public class Cat implements Meowable{
     private String name;
 
     public Cat(String name){
+        if(name != null && !name.equals(""))
         this.name = name;
     }
 
@@ -12,6 +13,8 @@ public class Cat implements Meowable{
     }
 
     public void meow(int n){
+        if(n <= 0) return;
+
         if(n == 1){
             meow();
             return;

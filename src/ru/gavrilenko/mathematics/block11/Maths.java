@@ -15,7 +15,10 @@ public class Maths {
     }
 
     public static double power(String[] arr){
-        if(arr.length == 0) throw new IllegalArgumentException();
+        if(arr.length == 0){
+            System.out.print("Аргументы не были переданы. Результат: ");
+            return Double.NaN;
+        }
 
         int a = parseInt(arr[0]),
             b = parseInt(arr[1]);
